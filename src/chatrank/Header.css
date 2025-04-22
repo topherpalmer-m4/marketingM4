@@ -1,0 +1,96 @@
+.chatrank-header {
+  height: 50px;
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.header-content {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--grey-100-obsidian);
+  margin: 0;
+}
+
+.title-separator {
+  font-weight: 300;
+}
+
+.header-filters {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-dropdown {
+  width: 200px;
+  height: 50px;
+  background-color: var(--gray-lighter);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--grey-50);
+  line-height: 14px;
+}
+
+.filter-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--grey-70);
+  line-height: 14px;
+  margin-top: 4px;
+}
+
+.dropdown-arrow {
+  width: 7px;
+  height: 5px;
+}
+
+.settings-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primitives-colors-common-white);
+  border: 1px solid #dedddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.settings-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--grey-70);
+}

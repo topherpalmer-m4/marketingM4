@@ -1,0 +1,207 @@
+:root {
+  --blue-20: rgba(168, 211, 255, 1);
+  --blue-60: rgba(0, 115, 228, 1);
+  --gray-lighter: rgba(248, 248, 248, 1);
+  --grey-100-obsidian: rgba(6, 8, 11, 1);
+  --grey-30: rgba(198, 198, 198, 1);
+  --grey-50: rgba(143, 143, 143, 1);
+  --grey-70: rgba(85, 85, 85, 1);
+  --primitives-colors-common-black: rgba(0, 0, 0, 1);
+  --primitives-colors-common-blue-500: rgba(0, 111, 238, 1);
+  --primitives-colors-common-green-300: rgba(116, 223, 162, 1);
+  --primitives-colors-common-green-50: rgba(232, 250, 240, 1);
+  --primitives-colors-common-green-500: rgba(23, 201, 100, 1);
+  --primitives-colors-common-green-600: rgba(18, 161, 80, 1);
+  --primitives-colors-common-green-900: rgba(5, 40, 20, 1);
+  --primitives-colors-common-mirage: rgba(25, 33, 56, 1);
+  --primitives-colors-common-teal-500: rgba(122, 224, 181, 1);
+  --primitives-colors-common-teal-600: rgba(89, 192, 159, 1);
+  --primitives-colors-common-white: rgba(255, 255, 255, 1);
+  --primitives-colors-common-white-lilac: rgba(247, 249, 252, 1);
+  --primitives-colors-common-zinc-100: rgba(244, 244, 245, 1);
+  --primitives-colors-common-zinc-200: rgba(228, 228, 231, 1);
+  --primitives-colors-common-zinc-300: rgba(199, 199, 199, 1);
+  --primitives-colors-common-zinc-300-duplicate: rgba(212, 212, 216, 1);
+  --primitives-colors-common-zinc-400: rgba(161, 161, 170, 1);
+  --primitives-colors-common-zinc-400-duplicate: rgba(169, 169, 169, 1);
+  --primitives-colors-common-zinc-500: rgba(113, 113, 122, 1);
+  --primitives-colors-common-zinc-500-duplicate: rgba(143, 143, 143, 1);
+  --primitives-colors-common-zinc-700: rgba(85, 85, 85, 1);
+  --primitives-colors-common-zinc-700-duplicate: rgba(63, 63, 70, 1);
+  --primitives-colors-common-zinc-800: rgba(39, 39, 42, 1);
+  --primitives-colors-common-zinc-900: rgba(24, 24, 27, 1);
+  --primitives-units-unit-4: 16px;
+  --primitives-units-unit-4-duplicate: 16px;
+  --primitives-units-unit-5: 20px;
+  --primitives-units-unit-6: 24px;
+  --shadow-neutral-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --text-sm-leading-5-font-normal-font-family: "Inter", Helvetica;
+  --text-sm-leading-5-font-normal-font-size: 14px;
+  --text-sm-leading-5-font-normal-font-style: normal;
+  --text-sm-leading-5-font-normal-font-weight: 400;
+  --text-sm-leading-5-font-normal-letter-spacing: 0px;
+  --text-sm-leading-5-font-normal-line-height: 20px;
+  --text-small-font-family: "Inter", Helvetica;
+  --text-small-font-size: 14px;
+  --text-small-font-style: normal;
+  --text-small-font-weight: 400;
+  --text-small-letter-spacing: 0px;
+  --text-small-line-height: 20px;
+  --text-tiny-font-family: "Inter", Helvetica;
+  --text-tiny-font-size: 12px;
+  --text-tiny-font-style: normal;
+  --text-tiny-font-weight: 400;
+  --text-tiny-letter-spacing: 0px;
+  --text-tiny-line-height: 16px;
+  --text-xs-leading-4-font-normal-font-family: "Inter", Helvetica;
+  --text-xs-leading-4-font-normal-font-size: 12px;
+  --text-xs-leading-4-font-normal-font-style: normal;
+  --text-xs-leading-4-font-normal-font-weight: 400;
+  --text-xs-leading-4-font-normal-letter-spacing: 0px;
+  --text-xs-leading-4-font-normal-line-height: 16px;
+  --tokens-colors-base-default: var(
+    --primitives-colors-common-zinc-300-duplicate
+  );
+  --tokens-colors-base-default-100: var(--primitives-colors-common-zinc-100);
+  --tokens-colors-base-default-100-duplicate: var(
+    --primitives-colors-common-zinc-100
+  );
+  --tokens-colors-base-default-200: var(--primitives-colors-common-zinc-200);
+  --tokens-colors-base-default-400: var(--primitives-colors-common-zinc-400);
+  --tokens-colors-base-default-400-duplicate: var(
+    --primitives-colors-common-zinc-400-duplicate
+  );
+  --tokens-colors-base-default-500: var(--primitives-colors-common-zinc-500);
+  --tokens-colors-base-default-500-duplicate: var(
+    --primitives-colors-common-zinc-500
+  );
+  --tokens-colors-base-default-duplicate: var(
+    --primitives-colors-common-zinc-300-duplicate
+  );
+  --tokens-colors-base-default-foreground: var(--primitives-colors-common-black);
+  --tokens-colors-base-default-foreground-duplicate: var(
+    --primitives-colors-common-black
+  );
+  --tokens-colors-base-force-dark: var(--tokens-colors-layout-background);
+  --tokens-colors-base-force-dark-duplicate: var(
+    --tokens-colors-layout-background
+  );
+  --tokens-colors-base-primary: var(--primitives-colors-common-blue-500);
+  --tokens-colors-base-primary-duplicate: var(
+    --primitives-colors-common-teal-600
+  );
+  --tokens-colors-base-primary-foreground: var(--primitives-colors-common-white);
+  --tokens-colors-base-secondary-foreground: var(
+    --primitives-colors-common-white
+  );
+  --tokens-colors-base-success: var(--primitives-colors-common-green-500);
+  --tokens-colors-base-success-50: var(--primitives-colors-common-green-50);
+  --tokens-colors-base-success-600: var(--primitives-colors-common-green-600);
+  --tokens-colors-base-success-foreground: var(--primitives-colors-common-black);
+  --tokens-colors-content-content1: var(--primitives-colors-common-white);
+  --tokens-colors-layout-background: var(--primitives-colors-common-white);
+  --tokens-colors-layout-foreground: rgba(17, 24, 28, 1);
+  --tokens-colors-layout-foreground-500: var(
+    --primitives-colors-common-zinc-500
+  );
+  --tokens-colors-layout-foreground-duplicate: rgba(17, 24, 28, 1);
+  --white: rgba(255, 255, 255, 1);
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-tokens-mode="light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-tokens-mode="light"] {
+  --tokens-colors-base-default: var(
+    --primitives-colors-common-zinc-300-duplicate
+  );
+  --tokens-colors-base-default-100: var(--primitives-colors-common-zinc-100);
+  --tokens-colors-base-default-100-duplicate: var(
+    --primitives-colors-common-zinc-100
+  );
+  --tokens-colors-base-default-200: var(--primitives-colors-common-zinc-200);
+  --tokens-colors-base-default-400: var(--primitives-colors-common-zinc-400);
+  --tokens-colors-base-default-400-duplicate: var(
+    --primitives-colors-common-zinc-400-duplicate
+  );
+  --tokens-colors-base-default-500: var(--primitives-colors-common-zinc-500);
+  --tokens-colors-base-default-500-duplicate: var(
+    --primitives-colors-common-zinc-500
+  );
+  --tokens-colors-base-default-duplicate: var(
+    --primitives-colors-common-zinc-300-duplicate
+  );
+  --tokens-colors-base-default-foreground: var(--primitives-colors-common-black);
+  --tokens-colors-base-default-foreground-duplicate: var(
+    --primitives-colors-common-black
+  );
+  --tokens-colors-base-force-dark: var(--tokens-colors-layout-background);
+  --tokens-colors-base-force-dark-duplicate: var(
+    --tokens-colors-layout-background
+  );
+  --tokens-colors-base-primary-duplicate: var(
+    --primitives-colors-common-teal-600
+  );
+  --tokens-colors-base-success-50: var(--primitives-colors-common-green-50);
+  --tokens-colors-base-success-600: var(--primitives-colors-common-green-600);
+  --tokens-colors-content-content1: var(--primitives-colors-common-white);
+  --tokens-colors-layout-background: var(--primitives-colors-common-white);
+  --tokens-colors-layout-foreground: rgba(17, 24, 28, 1);
+  --tokens-colors-layout-foreground-500: var(
+    --primitives-colors-common-zinc-500
+  );
+  --tokens-colors-layout-foreground-duplicate: rgba(17, 24, 28, 1);
+}
+
+[data-tokens-mode="dark"] {
+  --tokens-colors-base-default: var(
+    --primitives-colors-common-zinc-700-duplicate
+  );
+  --tokens-colors-base-default-100: var(--primitives-colors-common-zinc-800);
+  --tokens-colors-base-default-100-duplicate: var(
+    --primitives-colors-common-zinc-800
+  );
+  --tokens-colors-base-default-200: var(
+    --primitives-colors-common-zinc-700-duplicate
+  );
+  --tokens-colors-base-default-400: var(--primitives-colors-common-zinc-500);
+  --tokens-colors-base-default-400-duplicate: var(
+    --primitives-colors-common-zinc-500-duplicate
+  );
+  --tokens-colors-base-default-500: var(--primitives-colors-common-zinc-400);
+  --tokens-colors-base-default-500-duplicate: var(
+    --primitives-colors-common-zinc-400
+  );
+  --tokens-colors-base-default-duplicate: var(
+    --primitives-colors-common-zinc-700-duplicate
+  );
+  --tokens-colors-base-default-foreground: var(--primitives-colors-common-white);
+  --tokens-colors-base-default-foreground-duplicate: var(
+    --primitives-colors-common-white
+  );
+  --tokens-colors-base-force-dark: var(--tokens-colors-base-default-duplicate);
+  --tokens-colors-base-force-dark-duplicate: var(
+    --tokens-colors-base-default-duplicate
+  );
+  --tokens-colors-base-primary-duplicate: var(
+    --primitives-colors-common-teal-500
+  );
+  --tokens-colors-base-success-50: var(--primitives-colors-common-green-900);
+  --tokens-colors-base-success-600: var(--primitives-colors-common-green-300);
+  --tokens-colors-content-content1: var(--primitives-colors-common-zinc-900);
+  --tokens-colors-layout-background: var(--primitives-colors-common-black);
+  --tokens-colors-layout-foreground: rgba(236, 237, 238, 1);
+  --tokens-colors-layout-foreground-500: var(
+    --primitives-colors-common-zinc-400
+  );
+  --tokens-colors-layout-foreground-duplicate: rgba(236, 237, 238, 1);
+}

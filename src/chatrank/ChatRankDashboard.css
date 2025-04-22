@@ -1,0 +1,27 @@
+.chatrank-dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primitives-colors-common-white);
+  font-family: var(--text-small-font-family);
+}
+
+.dashboard-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-main {
+  display: flex;
+  gap: 20px;
+}
+
+.tables-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

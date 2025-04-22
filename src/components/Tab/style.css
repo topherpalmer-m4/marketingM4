@@ -1,0 +1,62 @@
+.tab {
+  align-items: center;
+  border-radius: 100px;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 4px 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab.on {
+  background-color: var(--blue-20);
+  box-shadow: var(--shadow-neutral-sm);
+  border: 1px solid var(--blue-60);
+}
+
+.tab.off {
+  background-color: transparent;
+}
+
+.tab.off:hover {
+  background-color: rgba(244, 244, 245, 0.8);
+}
+
+.tab .div {
+  color: var(--grey-100-obsidian);
+  font-family: var(--text-small-font-family);
+  font-size: var(--text-small-font-size);
+  font-style: var(--text-small-font-style);
+  font-weight: var(--text-small-font-weight);
+  letter-spacing: var(--text-small-letter-spacing);
+  line-height: var(--text-small-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tab .text-4 {
+  font-family: var(--text-tiny-font-family);
+  font-size: var(--text-tiny-font-size);
+  font-style: var(--text-tiny-font-style);
+  font-weight: var(--text-tiny-font-weight);
+  letter-spacing: var(--text-tiny-letter-spacing);
+  line-height: var(--text-tiny-line-height);
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tab.on .div,
+.tab.on .text-4 {
+  color: var(--grey-100-obsidian);
+  font-weight: 500;
+}
+
+.tab.off .text-4 {
+  color: var(--tokens-colors-base-default-500-duplicate);
+}

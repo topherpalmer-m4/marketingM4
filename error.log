@@ -1,0 +1,5 @@
+npm error Missing script: "ios"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /Users/chrispalmer/.npm/_logs/2025-04-18T16_47_13_492Z-debug-0.log

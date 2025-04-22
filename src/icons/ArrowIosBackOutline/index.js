@@ -1,0 +1,1 @@
+export { ArrowIosBackOutline } from "./ArrowIosBackOutline";

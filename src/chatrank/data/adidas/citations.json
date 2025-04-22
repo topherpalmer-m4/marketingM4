@@ -1,0 +1,74 @@
+{
+  "citations": [
+    {
+      "rank": 1,
+      "url": "nike.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png",
+      "citation": 30,
+      "source": 40,
+      "none": 30,
+      "score": 80,
+      "volume": 800
+    },
+    {
+      "rank": 2,
+      "url": "adidas.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png",
+      "citation": 25,
+      "source": 35,
+      "none": 40,
+      "score": 75,
+      "volume": 750
+    },
+    {
+      "rank": 3,
+      "url": "underarmour.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5068-2@2x.png",
+      "citation": 13,
+      "source": 37,
+      "none": 50,
+      "score": 78,
+      "volume": 567
+    },
+    {
+      "rank": 4,
+      "url": "si.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5069@2x.png",
+      "citation": 10,
+      "source": 37,
+      "none": 53,
+      "score": 77,
+      "volume": 833
+    },
+    {
+      "rank": 5,
+      "url": "menshealth.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5070-1@2x.png",
+      "citation": 6,
+      "source": 36,
+      "none": 58,
+      "score": 74,
+      "volume": 899
+    },
+    {
+      "rank": 6,
+      "url": "runnersworld.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5071@2x.png",
+      "citation": 6,
+      "source": 36,
+      "none": 58,
+      "score": 73,
+      "volume": 73
+    },
+    {
+      "rank": 7,
+      "url": "sneakerfreaker.com",
+      "logo": "https://c.animaapp.com/2o30tgAo/img/group-5072@2x.png",
+      "citation": 5,
+      "source": 35,
+      "none": 60,
+      "score": 72,
+      "volume": 450
+    }
+  ]
+}

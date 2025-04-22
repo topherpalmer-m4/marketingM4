@@ -1,0 +1,29 @@
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-wrapper {
+  width: 16px !important;
+  height: 16px !important;
+  border: 2px solid #c7c7c7 !important;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.radio[data-checked="true"] .radio-wrapper {
+  border-color: #006fee !important;
+}
+
+.radio-control {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: #59c09f !important;
+  border-radius: 9999px !important;
+}
+
+.radio-label {
+  display: none !important; /* Labels are handled in Dropdown.jsx */
+}
