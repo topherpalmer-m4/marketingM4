@@ -1,9 +1,9 @@
 import React from 'react';
 import './DemographicsFilter.css';
 
-export const DemographicsFilter = ({ onClose }) => {
+export const DemographicsFilter = ({ onClose, isVisible }) => {
   return (
-    <div className="demographics-filter">
+    <div className={`demographics-filter ${isVisible ? 'visible' : ''}`}>
       <div className="filter-header">
         <h2 className="filter-title">Audience Filters</h2>
         <button className="close-button" onClick={onClose}>×</button>

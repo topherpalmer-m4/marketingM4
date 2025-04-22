@@ -7,6 +7,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: fixed;
+  top: 120px;
+  right: -312px;
+  bottom: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 100;
+  overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.demographics-filter.visible {
+  right: 20px;
 }
 
 .filter-header {
@@ -102,4 +114,10 @@
   color: var(--primitives-colors-common-white);
   font-size: 14px;
   cursor: pointer;
+}
+
+.dashboard-content.filter-visible .audience-tables,
+.dashboard-content.filter-visible .citations-table {
+  width: calc(100% - 320px);
+  transition: width 0.3s ease-in-out;
 }
