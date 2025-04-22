@@ -11,6 +11,11 @@ export const ControlPanel = ({
   setViewMode,
   toggleDemographics
 }) => {
+  const handleViewModeChange = (mode) => {
+    setViewMode(mode);
+    console.log('View mode changed to:', mode);
+  };
+
   return (
     <div className="control-panel">
       <div className="view-selectors">
@@ -29,8 +34,9 @@ export const ControlPanel = ({
         <div className="chart-controls">
           <button 
             className={`chart-option ${viewMode === 'list' ? 'active' : ''}`}
-            onClick={() => setViewMode('list')}
+            onClick={() => handleViewModeChange('list')}
             aria-label="List view"
+            aria-pressed={viewMode === 'list'}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 4H14M2 8H14M2 12H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -38,8 +44,9 @@ export const ControlPanel = ({
           </button>
           <button 
             className={`chart-option ${viewMode === 'bar' ? 'active' : ''}`}
-            onClick={() => setViewMode('bar')}
+            onClick={() => handleViewModeChange('bar')}
             aria-label="Bar chart view"
+            aria-pressed={viewMode === 'bar'}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 13V9M6 13V6M10 13V8M14 13V3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -47,8 +54,9 @@ export const ControlPanel = ({
           </button>
           <button 
             className={`chart-option ${viewMode === 'line' ? 'active' : ''}`}
-            onClick={() => setViewMode('line')}
+            onClick={() => handleViewModeChange('line')}
             aria-label="Line chart view"
+            aria-pressed={viewMode === 'line'}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 12L5.5 8.5L8.5 11.5L14 6M14 6V10M14 6H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -56,8 +64,9 @@ export const ControlPanel = ({
           </button>
           <button 
             className={`chart-option ${viewMode === 'pie' ? 'active' : ''}`}
-            onClick={() => setViewMode('pie')}
+            onClick={() => handleViewModeChange('pie')}
             aria-label="Pie chart view"
+            aria-pressed={viewMode === 'pie'}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 8V2C5.239 2 3 4.239 3 7C3 9.761 5.239 12 8 12C10.761 12 13 9.761 13 7H8Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -79,9 +88,9 @@ export const ControlPanel = ({
               onClick={() => setActiveContentTab('fullChat')}
             />
             <Tab
-              className="tab-item"
+              className="tab-start"
               color="default"
-              divClassName="tab-content"
+              divClassName="tab-instance"
               isSelected={activeContentTab === 'prompt' ? 'on' : 'off'}
               radius="full"
               size="sm"
@@ -90,9 +99,9 @@ export const ControlPanel = ({
               onClick={() => setActiveContentTab('prompt')}
             />
             <Tab
-              className="tab-item"
+              className="tab-start"
               color="default"
-              divClassName="tab-content"
+              divClassName="tab-instance"
               isSelected={activeContentTab === 'response' ? 'on' : 'off'}
               radius="full"
               size="sm"
@@ -104,7 +113,7 @@ export const ControlPanel = ({
           
           <div className="tab-group">
             <Tab
-              className="tab-item"
+              className="tab-start"
               color="default"
               divClassName="tab-content"
               isSelected={activeTab === 'allBrands' ? 'on' : 'off'}
@@ -115,7 +124,7 @@ export const ControlPanel = ({
               onClick={() => setActiveTab('allBrands')}
             />
             <Tab
-              className="tab-item"
+              className="tab-start"
               color="default"
               divClassName="tab-content"
               isSelected={activeTab === 'myBrands' ? 'on' : 'off'}

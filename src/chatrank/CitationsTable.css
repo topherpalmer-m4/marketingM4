@@ -148,13 +148,13 @@
 }
 
 .url-column {
-  flex: 1;
-  min-width: 150px;
+  flex: 0 0 25%;
+  padding-right: 0;
 }
 
 .share-column {
-  flex: 2;
-  padding: 0 20px;
+  flex: 1;
+  padding-left: 0;
 }
 
 .score-column {
@@ -170,7 +170,8 @@
 .url-content {
   display: flex;
   align-items: center;
-  gap: 12px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .url-logo {
@@ -183,6 +184,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 8px;
 }
 
 .share-bar {
@@ -216,8 +218,6 @@
   color: var(--grey-100-obsidian);
 }
 
-/* Add these styles to the existing CSS file */
-
 .loading-state, .error-state, .empty-state {
   padding: 24px 16px;
   text-align: center;
@@ -229,7 +229,7 @@
 .error-state {
   color: #e53935;
 }
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .citations-header {
     flex-direction: column;
@@ -242,10 +242,11 @@
   }
   
   .share-column {
-    padding: 0 10px;
+    padding: 0;
   }
   
-  .segment-value {
-    display: none;
+  .citations-cell.url-column {
+    flex: 0 0 30%;
+    padding-right: 0;
   }
 }

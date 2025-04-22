@@ -40,7 +40,10 @@ export const ChatRankDashboard = () => {
       </div>
       
       <div className={`dashboard-content ${showDemographics ? 'filter-visible' : ''}`}>
-        <AudienceTables customerId={selectedClient} />
+        <AudienceTables 
+          customerId={selectedClient} 
+          dataDisplay={viewMode}
+        />
       </div>
       
       <DemographicsFilter 
