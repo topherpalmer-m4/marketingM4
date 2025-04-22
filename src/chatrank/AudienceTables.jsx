@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CitationsTable } from './CitationsTable';
 import './AudienceTables.css';
 
 const brandIconMap = {
@@ -20,6 +21,12 @@ const getBrandIconUrl = (productName) => {
   return brandKey ? brandIconMap[brandKey] : brandIconMap.default;
 };
 
+const formatTableTitle = (arrayName) => {
+  const withSpaces = arrayName.replace(/([A-Z])/g, ' $1');
+  const capitalized = withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1);
+  return capitalized.replace(/\s*Data\s*$/, '');
+};
+
 const fetchAudienceData = async (customerId = 'adidas') => {
   try {
     const response = await fetch(`/src/chatrank/data/${customerId}/audience-data.json`);
@@ -34,26 +41,12 @@ const fetchAudienceData = async (customerId = 'adidas') => {
 };
 
 export const AudienceTables = ({ customerId = 'adidas' }) => {
-  const [audienceData, setAudienceData] = useState({
-    generalAudienceData: [],
-    performanceRunnersData: [],
-    youthAthletesData: []
-  });
-  
+  const [audienceData, setAudienceData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const [hoveredState, setHoveredState] = useState({
-    'general': null,
-    'performance': null,
-    'youth': null
-  });
-  
-  const [highlightedState, setHighlightedState] = useState({
-    'general': new Set(),
-    'performance': new Set(),
-    'youth': new Set()
-  });
+  const [hoveredState, setHoveredState] = useState({});
+  const [highlightedState, setHighlightedState] = useState({});
 
   useEffect(() => {
     const loadAudienceData = async () => {
@@ -61,6 +54,17 @@ export const AudienceTables = ({ customerId = 'adidas' }) => {
       try {
         const data = await fetchAudienceData(customerId);
         setAudienceData(data);
+        
+        const initialHoveredState = {};
+        const initialHighlightedState = {};
+        
+        Object.keys(data).forEach(key => {
+          initialHoveredState[key] = null;
+          initialHighlightedState[key] = new Set();
+        });
+        
+        setHoveredState(initialHoveredState);
+        setHighlightedState(initialHighlightedState);
         setError(null);
       } catch (err) {
         setError('Failed to load audience data. Please try again later.');
@@ -146,7 +150,7 @@ export const AudienceTables = ({ customerId = 'adidas' }) => {
         <div className="table-body" role="rowgroup">
           {data.map((item) => {
             const isHovered = hoveredState[tableId] === item.id;
-            const isHighlighted = highlightedState[tableId].has(item.id);
+            const isHighlighted = highlightedState[tableId]?.has(item.id);
             
             return (
               <div 
@@ -194,9 +198,39 @@ export const AudienceTables = ({ customerId = 'adidas' }) => {
 
   return (
     <div className="audience-tables">
-      {renderTable('General Audience', audienceData.generalAudienceData, 'general')}
-      {renderTable('Performance Runners', audienceData.performanceRunnersData, 'performance')}
-      {renderTable('Youth Athletes', audienceData.youthAthletesData, 'youth')}
+      <div className="audience-tables-row">
+        {!isLoading && !error && Object.entries(audienceData).map(([key, value]) => (
+          <React.Fragment key={key}>
+            {renderTable(formatTableTitle(key), value, key)}
+          </React.Fragment>
+        ))}
+        
+        {isLoading && (
+          <>
+            <div className="audience-table loading">
+              <div className="table-title">Loading...</div>
+              <div className="loading-message">Loading data...</div>
+            </div>
+            <div className="audience-table loading">
+              <div className="table-title">Loading...</div>
+              <div className="loading-message">Loading data...</div>
+            </div>
+            <div className="audience-table loading">
+              <div className="table-title">Loading...</div>
+              <div className="loading-message">Loading data...</div>
+            </div>
+          </>
+        )}
+        
+        {error && (
+          <div className="audience-table error">
+            <div className="table-title">Error</div>
+            <div className="error-message">{error}</div>
+          </div>
+        )}
+      </div>
+      
+      <CitationsTable customerId={customerId} />
     </div>
   );
 };

@@ -216,24 +216,8 @@
   color: var(--grey-100-obsidian);
 }
 
-.segment-value {
-  font-size: 11px;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
 /* Add these styles to the existing CSS file */
 
-.share-segment:hover .segment-value {
-  opacity: 1;
-}
-
-.score-value {
-  font-weight: 600;
-  color: var(--grey-100-obsidian);
-}
-
-.volume-value {
 .loading-state, .error-state, .empty-state {
   padding: 24px 16px;
   text-align: center;
@@ -264,5 +248,4 @@
   .segment-value {
     display: none;
   }
-}
 }

@@ -1,0 +1,23 @@
+{
+  "youthAudienceData": [
+    { "id": "ya-1", "rank": 1, "name": "ABC", "mentions": "22%", "trend": "+3.5%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+    { "id": "ya-1", "rank": 2, "name": "Netflix", "mentions": "22%", "trend": "+3.5%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+    { "id": "ya-2", "rank": 3, "name": "YouTube", "mentions": "19%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" },
+    { "id": "ya-4", "rank": 4, "name": "Hulu", "mentions": "12%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg" },
+    { "id": "ya-5", "rank": 5, "name": "Amazon Prime Video", "mentions": "10%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Amazon_Prime_Video_logo.svg" }
+  ],
+  "widowSinglePersonData": [
+    { "id": "ws-1", "rank": 1, "name": "Hulu", "mentions": "20%", "trend": "+2.8%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg" },
+    { "id": "ws-2", "rank": 2, "name": "Netflix", "mentions": "17%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+    { "id": "ws-3", "rank": 3, "name": "Amazon Prime Video", "mentions": "14%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Amazon_Prime_Video_logo.svg" },
+    { "id": "ws-4", "rank": 4, "name": "Disney+", "mentions": "11%", "trend": "+1.5%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" },
+    { "id": "ws-5", "rank": 5, "name": "YouTube", "mentions": "9%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" }
+  ],
+  "artistsData": [
+    { "id": "ar-1", "rank": 1, "name": "Netflix", "mentions": "21%", "trend": "+3.0%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+    { "id": "ar-2", "rank": 2, "name": "Hulu", "mentions": "16%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg" },
+    { "id": "ar-3", "rank": 3, "name": "Amazon Prime Video", "mentions": "13%", "trend": "+1.7%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Amazon_Prime_Video_logo.svg" },
+    { "id": "ar-4", "rank": 4, "name": "Disney+", "mentions": "10%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" },
+    { "id": "ar-5", "rank": 5, "name": "YouTube", "mentions": "8%", "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" }
+  ]
+}

@@ -25,15 +25,17 @@ export const CitationsTable = ({ customerId = 'adidas' }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log(`CitationsTable: Loading data for customerId: ${customerId}`);
     const loadCitationsData = async () => {
       setIsLoading(true);
       try {
         const data = await fetchCitationsData(customerId);
+        console.log(`CitationsTable: Data loaded for ${customerId}:`, data);
         setCitationsData(data);
         setError(null);
       } catch (err) {
+        console.error(`CitationsTable: Error loading data for ${customerId}:`, err);
         setError('Failed to load citations data. Please try again later.');
-        console.error(err);
       } finally {
         setIsLoading(false);
       }
@@ -41,6 +43,8 @@ export const CitationsTable = ({ customerId = 'adidas' }) => {
 
     loadCitationsData();
   }, [customerId]);
+
+  console.log('CitationsTable: Rendering with data:', citationsData);
 
   const handleRowClick = (rank) => {
     setSelectedRow(rank === selectedRow ? null : rank);
@@ -92,55 +96,63 @@ export const CitationsTable = ({ customerId = 'adidas' }) => {
         </div>
         
         <div className="citations-table-body" role="rowgroup">
-          {citationsData.map((item) => (
-            <div 
-              key={`citation-${item.rank}`} 
-              className={`citations-row ${selectedRow === item.rank ? 'highlight' : ''}`}
-              role="row"
-              onClick={() => handleRowClick(item.rank)}
-              onMouseEnter={() => setHoveredRow(item.rank)}
-              onMouseLeave={() => setHoveredRow(null)}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  handleRowClick(item.rank);
-                  e.preventDefault();
-                }
-              }}
-              aria-selected={selectedRow === item.rank}
-            >
-              <div className="citations-cell rank-column" role="cell">{item.rank}.</div>
-              
-              <div className="citations-cell url-column" role="cell">
-                <div className="url-content">
-                  <img className="url-logo" src={item.logo} alt={`${item.url} logo`} />
-                  <div className="url-text">{item.url}</div>
-                </div>
-              </div>
-              
-              <div className="citations-cell share-column" role="cell">
-                <div className="share-bar">
-                  <div className="share-segment citation-segment" style={{ width: `${item.citation}%` }}>
-                    <div className="segment-value">{item.citation}%</div>
-                  </div>
-                  <div className="share-segment source-segment" style={{ width: `${item.source}%` }}>
-                    <div className="segment-value">{item.source}%</div>
-                  </div>
-                  <div className="share-segment none-segment" style={{ width: `${item.none}%` }}>
-                    <div className="segment-value">{item.none}%</div>
+          {isLoading ? (
+            <div className="loading-state">Loading citations data...</div>
+          ) : error ? (
+            <div className="error-state">{error}</div>
+          ) : citationsData.length === 0 ? (
+            <div className="empty-state">No citations data available.</div>
+          ) : (
+            citationsData.map((item) => (
+              <div 
+                key={`citation-${item.rank}`} 
+                className={`citations-row ${selectedRow === item.rank ? 'highlight' : ''}`}
+                role="row"
+                onClick={() => handleRowClick(item.rank)}
+                onMouseEnter={() => setHoveredRow(item.rank)}
+                onMouseLeave={() => setHoveredRow(null)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleRowClick(item.rank);
+                    e.preventDefault();
+                  }
+                }}
+                aria-selected={selectedRow === item.rank}
+              >
+                <div className="citations-cell rank-column" role="cell">{item.rank}.</div>
+                
+                <div className="citations-cell url-column" role="cell">
+                  <div className="url-content">
+                    <img className="url-logo" src={item.logo} alt={`${item.url} logo`} />
+                    <div className="url-text">{item.url}</div>
                   </div>
                 </div>
+                
+                <div className="citations-cell share-column" role="cell">
+                  <div className="share-bar">
+                    <div className="share-segment citation-segment" style={{ width: `${item.citation}%` }}>
+                      <div className="segment-value">{item.citation}%</div>
+                    </div>
+                    <div className="share-segment source-segment" style={{ width: `${item.source}%` }}>
+                      <div className="segment-value">{item.source}%</div>
+                    </div>
+                    <div className="share-segment none-segment" style={{ width: `${item.none}%` }}>
+                      <div className="segment-value">{item.none}%</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="citations-cell score-column" role="cell">
+                  <div className="score-value">{item.score}</div>
+                </div>
+                
+                <div className="citations-cell volume-column" role="cell">
+                  <div className="volume-value">{item.volume}</div>
+                </div>
               </div>
-              
-              <div className="citations-cell score-column" role="cell">
-                <div className="score-value">{item.score}</div>
-              </div>
-              
-              <div className="citations-cell volume-column" role="cell">
-                <div className="volume-value">{item.volume}</div>
-              </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

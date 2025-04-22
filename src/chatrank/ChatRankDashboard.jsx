@@ -1,42 +1,27 @@
 import React, { useState } from 'react';
-import { Header } from './Header';
-import { ControlPanel } from './ControlPanel';
-import { AudienceTables } from './AudienceTables';
+import { HeaderSection } from './HeaderSection';
 import { CitationsTable } from './CitationsTable';
-import { DemographicsFilter } from './DemographicsFilter';
+import { AudienceTables } from './AudienceTables';
 import './ChatRankDashboard.css';
 
 export const ChatRankDashboard = () => {
-  const [activeTab, setActiveTab] = useState('myBrands');
-  const [activeContentTab, setActiveContentTab] = useState('fullChat');
-  const [viewMode, setViewMode] = useState('list');
-  const [showDemographics, setShowDemographics] = useState(false);
-  
+  const [selectedClient, setSelectedClient] = useState('adidas');
+
+  const handleClientSelect = (clientName) => {
+    console.log('Client selected:', clientName);
+    setSelectedClient(clientName.toLowerCase());
+  };
+
   return (
     <div className="chatrank-dashboard">
-      <Header />
+      <HeaderSection 
+        onClientSelect={handleClientSelect} 
+        selectedClient={selectedClient} 
+      />
       
       <div className="dashboard-content">
-        <ControlPanel 
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          activeContentTab={activeContentTab}
-          setActiveContentTab={setActiveContentTab}
-          viewMode={viewMode}
-          setViewMode={setViewMode}
-          toggleDemographics={() => setShowDemographics(!showDemographics)}
-        />
-        
-        <div className="dashboard-main">
-          <div className="tables-container">
-            <AudienceTables />
-            <CitationsTable />
-          </div>
-          
-          {showDemographics && (
-            <DemographicsFilter onClose={() => setShowDemographics(false)} />
-          )}
-        </div>
+        <AudienceTables customerId={selectedClient.toLowerCase()} />
+        <CitationsTable customerId={selectedClient.toLowerCase()} />
       </div>
     </div>
   );

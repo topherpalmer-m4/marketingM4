@@ -1,14 +1,15 @@
 .chatrank-dashboard {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--primitives-colors-common-white);
   font-family: var(--text-small-font-family);
 }
 
 .dashboard-content {
+  flex: 1;
   padding: 20px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;

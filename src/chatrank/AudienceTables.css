@@ -1,6 +1,15 @@
 .audience-tables {
   display: flex;
+  flex-direction: column;
   gap: 20px;
+  width: 100%;
+}
+
+.audience-tables-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
   width: 100%;
 }
 
@@ -10,6 +19,8 @@
   border: 1px solid var(--grey-30);
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-width: 0;
 }
 
 .table-title {
@@ -28,6 +39,7 @@
 
 .header-row {
   display: flex;
+  align-items: center;
   padding: 16px;
 }
 
@@ -36,6 +48,7 @@
   font-weight: 700;
   color: var(--grey-100-obsidian);
   line-height: 16px;
+  padding: 8px 0;
 }
 
 .rank-cell {
@@ -43,9 +56,11 @@
   font-weight: 500;
 }
 
-.title-cell {
+.product-cell {
   flex: 1;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .mentions-cell {
@@ -54,6 +69,8 @@
 }
 
 .table-body {
+  max-height: 300px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
@@ -67,6 +84,10 @@
   margin-bottom: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: var(--primitives-colors-common-zinc-100);
 }
 
 .table-row.highlight {
@@ -95,13 +116,7 @@
   font-weight: 400;
   color: var(--grey-100-obsidian);
   line-height: 16px;
-}
-
-.product-cell {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  padding: 0 8px;
 }
 
 .product-logo {
@@ -169,4 +184,20 @@
 
 .empty-message {
   color: var(--grey-50);
+}
+
+@media (max-width: 992px) {
+  .audience-tables-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .audience-table {
+    width: 100%;
+  }
+}
+
+.citations-table {
+  margin-top: 20px;
+  width: 100%;
 }
