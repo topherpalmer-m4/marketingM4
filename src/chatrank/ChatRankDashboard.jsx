@@ -6,7 +6,7 @@ import { DemographicsFilter } from './DemographicsFilter';
 import './ChatRankDashboard.css';
 
 export const ChatRankDashboard = () => {
-  const [selectedClient, setSelectedClient] = useState('adidas');
+  const [selectedClient, setSelectedClient] = useState('abc');
   const [activeTab, setActiveTab] = useState('myBrands');
   const [activeContentTab, setActiveContentTab] = useState('fullChat');
   const [viewMode, setViewMode] = useState('list');
