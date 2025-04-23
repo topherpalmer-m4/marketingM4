@@ -12,7 +12,7 @@ export const HeaderSection = ({ onClientSelect, selectedClient = 'Adidas' }) => 
     const fetchClients = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('/src/chatrank/data/clients.json');
+        const response = await fetch('/chatrank/data/clients.json');
         if (!response.ok) {
           throw new Error('Failed to fetch clients data');
         }
@@ -42,8 +42,7 @@ export const HeaderSection = ({ onClientSelect, selectedClient = 'Adidas' }) => 
 
   const formattedClientName = formatClientName(selectedClient);
 
-  const selectedClientLogo = clients.find(client => client.url.toLowerCase() === selectedClient.toLowerCase())?.logo || 
-    "https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png";
+  const selectedClientLogo = clients.find(client => client.url.toLowerCase() === selectedClient.toLowerCase())?.logo 
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -89,13 +88,13 @@ export const HeaderSection = ({ onClientSelect, selectedClient = 'Adidas' }) => 
         
         <div className="header-controls">
           <div className="filter-dropdown">
-            <div className="filter-label">Category</div>
-            <div className="filter-value">Footwear</div>
+            <div className="filter-value">Category</div>
+            <div className="filter-value">All</div>
             <div className="dropdown-arrow" />
           </div>
           
           <div className="filter-dropdown">
-            <div className="filter-label">Time frame</div>
+            <div className="filter-value">Time frame</div>
             <div className="filter-value">Past 3 months</div>
             <div className="dropdown-arrow" />
           </div>
