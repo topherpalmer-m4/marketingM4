@@ -1,6 +1,8 @@
 .citations-table {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 20px; /* Match audience-table's curved corners */
+  border: 1px solid var(--grey-30); /* Match audience-table's border */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Match audience-table's shadow */
   overflow: hidden;
   margin-bottom: 20px;
   background-color: var(--primitives-colors-common-white);
@@ -9,9 +11,10 @@
 .citations-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
   padding: 16px 16px 0;
+  gap: 16px; /* Space between title, legend, and tabs */
+  justify-content: flex-start; /* Left-align all items */
 }
 
 .citations-title {
@@ -25,8 +28,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
-  margin-left: auto;
-  margin-right: 16px;
+  /* Left-aligned, no right margin */
 }
 
 .legend-item {
@@ -62,7 +64,7 @@
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
-  margin-left: auto;
+  /* Left-aligned, no margin-left: auto */
   background-color: var(--primitives-colors-common-zinc-100);
   border-radius: 100px;
   padding: 4px;
@@ -85,6 +87,7 @@
 
 .citations-table-container {
   width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 .citations-table-header {
@@ -145,25 +148,30 @@
 
 .rank-column {
   width: 50px;
+  min-width: 50px; /* Prevent shrinkage */
 }
 
 .url-column {
   flex: 0 0 25%;
+  min-width: 200px; /* Ensure minimum width for small screens */
   padding-right: 0;
 }
 
 .share-column {
   flex: 1;
+  min-width: 150px; /* Ensure minimum width */
   padding-left: 0;
 }
 
 .score-column {
   width: 80px;
+  min-width: 80px;
   text-align: center;
 }
 
 .volume-column {
   width: 80px;
+  min-width: 80px;
   text-align: right;
 }
 
@@ -174,9 +182,29 @@
   overflow: hidden;
 }
 
+.url-logo-wrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: width 0.2s;
+}
+
+.url-logo-wrapper.hide-logo {
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
 .url-logo {
   width: 24px;
   height: 24px;
+  object-fit: contain;
+  display: block;
 }
 
 .url-text {
@@ -185,6 +213,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 8px;
+  transition: margin-left 0.2s;
+}
+
+.url-logo-wrapper.hide-logo + .url-text {
+  margin-left: 0;
 }
 
 .share-bar {
@@ -218,7 +251,9 @@
   color: var(--grey-100-obsidian);
 }
 
-.loading-state, .error-state, .empty-state {
+.loading-state,
+.error-state,
+.empty-state {
   padding: 24px 16px;
   text-align: center;
   color: var(--grey-70);
@@ -236,17 +271,30 @@
     align-items: flex-start;
     gap: 12px;
   }
-  
+
   .citations-legend {
-    margin-left: auto;
+    /* Keep left-aligned */
   }
-  
+
   .share-column {
     padding: 0;
   }
-  
+
   .citations-cell.url-column {
     flex: 0 0 30%;
+    min-width: 150px; /* Adjust for mobile */
     padding-right: 0;
+  }
+
+  .url-content {
+    min-width: 0;
+  }
+  .url-logo-wrapper {
+    width: 20px;
+    height: 20px;
+  }
+  .url-logo {
+    width: 20px;
+    height: 20px;
   }
 }

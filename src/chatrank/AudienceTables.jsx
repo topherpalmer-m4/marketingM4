@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 import { CitationsTable } from './CitationsTable';
 import {
@@ -12,7 +12,6 @@ import {
   Legend,
 } from 'chart.js';
 
-// Register Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -46,8 +45,6 @@ const formatTableTitle = (arrayName) => {
   return capitalized.replace(/\s*Data\s*$/, '');
 };
 
-
-
 export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) => {
   const [audienceData, setAudienceData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +62,6 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
         console.log
         setAudienceData(data);
         
-        // Reset hover and highlight states for new data
         const initialHoveredState = {};
         const initialHighlightedState = {};
         Object.keys(data).forEach(key => {
@@ -86,10 +82,9 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
     loadAudienceData();
   }, [customerId]);
 
-  // Mock fetchAudienceData (replace with actual API call)
   const fetchAudienceData = async (customerId) => {
     try {
-      const path = `/src/chatrank/data/${customerId}/audience-data.json`;
+      const path = `/chatrank/data/${customerId}/audience-data.json`;
       const response = await fetch(path);
       if (!response.ok) {
         throw new Error(`Could not load data for customer: ${customerId}`);
@@ -103,7 +98,6 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
       setIsLoading(false);
     }
   };
-
 
   useEffect(() => {
     console.log('Chart type changed:', dataDisplay);
@@ -137,6 +131,15 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
       return newHighlighted;
     });
   };
+
+  // --- NEW: Compute maxRows for all tables ---
+  const maxRows = React.useMemo(() => {
+    if (!audienceData || typeof audienceData !== 'object') return 0;
+    return Math.max(
+      0,
+      ...Object.values(audienceData).map(arr => Array.isArray(arr) ? arr.length : 0)
+    );
+  }, [audienceData]);
 
   const renderChart = (title, data, tableId) => {
     if (isLoading) {
@@ -218,7 +221,7 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
     } else if (currentChartType === 'pie') {
       ChartComponent = Pie;
     } else {
-      return renderTable(title, data, tableId);
+      return renderTable(title, data, tableId, maxRows);
     }
 
     return (
@@ -230,7 +233,7 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
     );
   };
 
-  const renderTable = (title, data, tableId) => {
+  const renderTable = (title, data, tableId, maxRows) => {
     if (isLoading) {
       return (
         <div className="audience-table loading">
@@ -255,6 +258,12 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
         </div>
       );
     }
+
+    const rows = [...data];
+    while (rows.length < maxRows) {
+      rows.push({ id: `empty-${rows.length}`, empty: true });
+    }
+
     return (
       <div className="audience-table" role="table" aria-label={title}>
         <div className="table-title">{title}</div>
@@ -266,7 +275,22 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
           </div>
         </div>
         <div className="table-body" role="rowgroup">
-          {data.map((item) => {
+          {rows.map((item, idx) => {
+            if (item.empty) {
+              return (
+                <div
+                  key={item.id}
+                  className="table-row empty-row"
+                  style={{ background: 'transparent', cursor: 'default', height: '44px' }}
+                  role="row"
+                  aria-hidden="true"
+                >
+                  <div className="table-cell rank-cell" role="cell"></div>
+                  <div className="table-cell product-cell" role="cell"></div>
+                  <div className="table-cell mentions-cell" role="cell"></div>
+                </div>
+              );
+            }
             const isHovered = hoveredState[tableId] === item.id;
             const isHighlighted = highlightedState[tableId]?.has(item.id);
             return (
@@ -284,17 +308,22 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
                     e.preventDefault();
                   }
                 }}
+                style={{ height: '44px' }}
               >
                 <div className="table-cell rank-cell" role="cell">
                   {item.rank}.
                 </div>
                 <div className="table-cell product-cell" role="cell">
-                  <img 
-                    src={item.iconUrl}
-                    alt=""
-                    className="product-logo"
-                  />
-                  <span className="product-name">{item.name}</span>
+                  {item.iconUrl ? (
+                    <img 
+                      src={item.iconUrl}
+                      alt=""
+                      className="product-logo"
+                    />
+                  ) : (
+                    <div className="product-logo-placeholder" />
+                  )}
+                  <span className={`product-name ${!item.iconUrl ? 'no-icon' : ''}`}>{item.name}</span>
                   {item.trend && (
                     <div className="trend-indicator">
                       <div className="trend-arrow" />
@@ -320,7 +349,7 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
           <React.Fragment key={key}>
             {currentChartType === 'bar' || currentChartType === 'pie'
               ? renderChart(formatTableTitle(key), value, key)
-              : renderTable(formatTableTitle(key), value, key)}
+              : renderTable(formatTableTitle(key), value, key, maxRows)}
           </React.Fragment>
         ))}
         {isLoading && (
@@ -351,7 +380,6 @@ export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) 
   );
 };
 
-// Inline styles from provided style.css
 const styles = `
   .audience-tables {
     display: flex;
@@ -564,7 +592,6 @@ const styles = `
   }
 `;
 
-// Inject styles into the document
 const styleSheet = document.createElement('style');
 styleSheet.textContent = styles;
 document.head.appendChild(styleSheet);
