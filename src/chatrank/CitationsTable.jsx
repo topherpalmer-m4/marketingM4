@@ -16,7 +16,7 @@ const fetchCitationsData = async (customerId) => {
   }
 };
 
-export const CitationsTable = ({ customerId = 'adidas' }) => {
+export const CitationsTable = ({ customerId = 'abc' }) => {
   const [activeTab, setActiveTab] = useState('myBrands');
   const [selectedRow, setSelectedRow] = useState(null);
   const [hoveredRow, setHoveredRow] = useState(null);

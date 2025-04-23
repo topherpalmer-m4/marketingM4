@@ -45,7 +45,7 @@ const formatTableTitle = (arrayName) => {
   return capitalized.replace(/\s*Data\s*$/, '');
 };
 
-export const AudienceTables = ({ customerId = 'adidas', dataDisplay = 'list' }) => {
+export const AudienceTables = ({ customerId = 'abc', dataDisplay = 'list' }) => {
   const [audienceData, setAudienceData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
