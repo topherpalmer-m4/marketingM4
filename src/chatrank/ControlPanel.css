@@ -60,6 +60,7 @@
 
 .chart-option.active {
   background-color: var(--primitives-colors-common-white);
+  color: var(--blue-60);
 }
 
 .tab-groups {
