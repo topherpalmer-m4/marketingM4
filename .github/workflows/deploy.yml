@@ -22,6 +22,18 @@ jobs:
       - name: Build Vite React app
         run: npm run build
 
+      - name: Debug environment variables
+        run: |
+          echo "SERVER_IP: $SERVER_IP"
+          echo "SERVER_USERNAME: $SERVER_USERNAME"
+          echo "SERVER_PORT: $SERVER_PORT"
+          echo "SSH_PRIVATE_KEY exists: $(test -n '$SSH_PRIVATE_KEY' && echo 'yes' || echo 'no')"
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Deploy to server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -31,6 +43,7 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key $SERVER_USERNAME@$SERVER_IP -p $SERVER_PORT "mkdir -p /var/www/react-app"
-          rsync -avz --delete -e "ssh -i private_key -p $SERVER_PORT" ./dist/ $SERVER_USERNAME@$SERVER_IP:/var/www/react-app/
+          ls -l private_key
+          ssh -v -o StrictHostKeyChecking=no -i private_key $SERVER_USERNAME@$SERVER_IP -p $SERVER_PORT "mkdir -p /var/www/react-app"
+          rsync -avz --delete -e "ssh -v -i private_key -p $SERVER_PORT" ./dist/ $SERVER_USERNAME@$SERVER_IP:/var/www/react-app/
           rm private_key

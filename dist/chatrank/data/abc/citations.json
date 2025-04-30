@@ -1,0 +1,59 @@
+{
+  "citations": [
+    {
+      "rank": 1,
+      "url": "reddit.com/r/OnlyMurdersHulu",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/46/Reddit_Logo.svg",
+      "citation": 50,
+      "source": 45,
+      "none": 5,
+      "score": 92,
+      "volume": 2000,
+      "description": "Reddit discussions on r/OnlyMurdersHulu highlight 'Only Murders in the Building' as a top Hulu show, with fans praising its Season 4 plot twists and star-studded cast."
+    },
+    {
+      "rank": 2,
+      "url": "hollywoodreporter.com",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Hollywood_Reporter_logo.svg",
+      "citation": 40,
+      "source": 38,
+      "none": 22,
+      "score": 88,
+      "volume": 1800,
+      "description": "The Hollywood Reporter covers 'The Bear' and 'Only Murders in the Building' as Emmy-nominated Hulu originals, noting their critical acclaim and streaming popularity."
+    },
+    {
+      "rank": 3,
+      "url": "rottentomatoes.com",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Rotten_Tomatoes_Logo.svg",
+      "citation": 35,
+      "source": 40,
+      "none": 25,
+      "score": 85,
+      "volume": 1500,
+      "description": "Rotten Tomatoes ranks 'Shogun' and 'Mufasa: The Lion King' highly, with 'Shogun' noted as FX’s most-viewed premiere and 'Mufasa' receiving mixed reviews for its visuals."
+    },
+    {
+      "rank": 4,
+      "url": "filmfare.com",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Filmfare_logo.svg",
+      "citation": 30,
+      "source": 35,
+      "none": 35,
+      "score": 80,
+      "volume": 1200,
+      "description": "Filmfare reports 'Abbott Elementary' and 'Shogun' winning big at the 2025 SAG Awards, emphasizing their ensemble casts and Hulu’s strong comedy and drama lineup."
+    },
+    {
+      "rank": 5,
+      "url": "imdb.com",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg",
+      "citation": 25,
+      "source": 30,
+      "none": 45,
+      "score": 75,
+      "volume": 1000,
+      "description": "IMDb reviews praise 'Mufasa: The Lion King' for its animation and cast, while 'Only Murders in the Building' is celebrated for its award-nominated performances."
+    }
+  ]
+}

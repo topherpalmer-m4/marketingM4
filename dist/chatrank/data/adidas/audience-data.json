@@ -1,0 +1,23 @@
+{
+  "generalAudienceData": [
+    { "id": "ga-1", "rank": 1, "name": "Nike Air Max", "mentions": "16%", "trend": "+2.3%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "ga-2", "rank": 2, "name": "Adidas Ultraboost", "mentions": "14%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png" },
+    { "id": "ga-3", "rank": 3, "name": "Nike React", "mentions": "11%", "trend": "+1.5%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "ga-4", "rank": 4, "name": "Adidas D.O.N. Issue #6", "mentions": "9%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png" },
+    { "id": "ga-5", "rank": 5, "name": "New Balance 990", "mentions": "7%", "iconUrl": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/newBalance.png"}
+  ],
+  "performanceRunnersData": [
+    { "id": "pr-1", "rank": 1, "name": "Nike ZoomX Vaporfly", "mentions": "18%", "trend": "+3.1%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "pr-2", "rank": 2, "name": "Brooks Ghost", "mentions": "15%", "iconUrl": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/brooks.png" },
+    { "id": "pr-3", "rank": 3, "name": "ASICS Gel-Nimbus", "mentions": "12%", "iconUrl": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/asics.png" },
+    { "id": "pr-4", "rank": 4, "name": "Hoka Clifton", "mentions": "10%", "trend": "+1.8%", "iconUrl": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/hoka.png" },
+    { "id": "pr-5", "rank": 5, "name": "New Balance Fresh Foam", "mentions": "8%", "iconUrl": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/newBalance.png" }
+  ],
+  "youthAthletesData": [
+    { "id": "ya-1", "rank": 1, "name": "Nike Air Force 1", "mentions": "20%", "trend": "+4.2%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "ya-2", "rank": 2, "name": "Air Jordan 1", "mentions": "17%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "ya-3", "rank": 3, "name": "Adidas Superstar", "mentions": "13%","iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png" },
+    { "id": "ya-4", "rank": 4, "name": "Nike Dunk", "mentions": "11%", "trend": "+2.7%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5066-7@2x.png" },
+    { "id": "ya-5", "rank": 5, "name": "Adidas NMD", "mentions": "9%", "iconUrl":"https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png" }
+  ]
+}

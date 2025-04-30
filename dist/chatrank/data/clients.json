@@ -1,0 +1,25 @@
+{
+    "clients": [
+      {
+        "rank": 1,
+        "url": "ABC",
+        "logo": "https://chatrank-allpurpose.s3.us-east-2.amazonaws.com/brands/ABC-2021-LOGO.svg.png",
+        "citation": 30,
+        "source": 40,
+        "none": 30,
+        "score": 80,
+        "volume": 800
+      },
+      {
+        "rank": 2,
+        "url": "Adidas",
+        "logo": "https://c.animaapp.com/2o30tgAo/img/group-5067@2x.png",
+        "citation": 25,
+        "source": 35,
+        "none": 40,
+        "score": 75,
+        "volume": 750
+      }
+    ]
+  }
+  
