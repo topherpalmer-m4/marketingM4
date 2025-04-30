@@ -1,4 +1,4 @@
-name: Deploy Vite React App to Server
+name: Deploy Vite React App to Server v2
 on:
   push:
     branches:
