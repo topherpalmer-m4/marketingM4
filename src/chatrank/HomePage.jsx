@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 export const HomePage = () => {
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  
+  const toggleDropdown = (dropdownName) => {
+    if (activeDropdown === dropdownName) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(dropdownName);
+    }
+  };
+
   return (
     <div className="homepage">
       {/* Navigation Bar */}
@@ -16,7 +27,28 @@ export const HomePage = () => {
           </div>
           <div className="navbar-links">
             <a href="#platform" className="nav-link">Platform</a>
-            <a href="#resources" className="nav-link">Resources</a>
+            
+            {/* Resources Dropdown */}
+            <div className="dropdown-container">
+              <button 
+                className="nav-link dropdown-toggle" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleDropdown('resources');
+                }}
+              >
+                Resources
+              </button>
+              
+              {activeDropdown === 'resources' && (
+                <div className="nav-dropdown">
+                  <Link to="/insights/ChatRankDashboard" className="dropdown-item">
+                    Chat Rank
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <a href="#enterprise" className="nav-link">Enterprise</a>
             <a href="#pricing" className="nav-link">Pricing</a>
             <a href="#sales" className="nav-link">Talk to Sales</a>
